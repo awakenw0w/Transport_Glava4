@@ -12,6 +12,7 @@ public class Main {
         planes.add(new Plane(500, 10000000, "777AAA", "JET VIP", 100));
 
 
+
         //Найти стоимость и пробег заданного автомобиля
         Car car0 = cars.get(0);
         System.out.println("Стоимость первого автомобиля: " + car0.getCost() + ". Пробег: " + car0.getMileage());
@@ -44,11 +45,13 @@ public class Main {
         }
 
         System.out.println("Самая дорогая машина " + mostExpensiveCar.getBrand() + soutTechInsp);
+
+        // Для заданного самолета найти мощность и максимальную высоту полета.
+        Plane plane0 = planes.get(0);
+        Plane plane1 = planes.get(1);
+        System.out.println("Стоимость первого самолета: " + plane0.getPower() + ". Пробег: " + plane0.getBrand());
+
+
+        
     }
-
-    // Для заданного самолета найти мощность и максимальную высоту полета.
-    
-
-
-
 }

@@ -13,13 +13,15 @@ public class Main {
 
 
         //Найти стоимость и пробег заданного автомобиля
-        Car car = cars.get(0);
-        System.out.println("Стоимость автомобиля: " + car.getCost() + ". Пробег: " + car.getMileage());
-
+        Car car0 = cars.get(0);
+        System.out.println("Стоимость первого автомобиля: " + car0.getCost() + ". Пробег: " + car0.getMileage());
+        Car car1 = cars.get(1);
+        System.out.println("Стоимость второго автомобиля: " + car1.getCost() + ". Пробег: " + car1.getMileage());
         // налог на регистрацию всех машин (5% от стоимости)
         double CarTax = 0; // налог на авто
         for (Car s : cars){
             double carTax = s.getCost() * 0.05;
+            CarTax += carTax;
         }
         System.out.println("Налог на регистрацию всех машин составляет: " + CarTax);
 
@@ -33,12 +35,20 @@ public class Main {
             }
         }
         // проверяем прошла ли она техосмотр
-        System.out.println("Самая дорогая машина" + mostExpensiveCar);
+
+        String soutTechInsp;
         if(mostExpensiveCar.isTechInsp()){
-            System.out.println(" прошла тех осмотр");
+            soutTechInsp = " прошла тех осмотр";
         } else {
-            System.out.println(" не прошла тех осмотр");
+            soutTechInsp = " не прошла тех осмотр";
         }
 
+        System.out.println("Самая дорогая машина " + mostExpensiveCar.getBrand() + soutTechInsp);
     }
+
+    // Для заданного самолета найти мощность и максимальную высоту полета.
+    
+
+
+
 }

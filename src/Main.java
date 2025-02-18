@@ -49,9 +49,13 @@ public class Main {
         // Для заданного самолета найти мощность и максимальную высоту полета.
         Plane plane0 = planes.get(0);
         Plane plane1 = planes.get(1);
-        System.out.println("Стоимость первого самолета: " + plane0.getPower() + ". Пробег: " + plane0.getBrand());
-
+        System.out.println("Мощность первого самолета: " + plane0.getPower() + ". Максимальная высота полета: " + plane0.getFlyingHeight() + "Марка: " + plane0.getBrand());
+        System.out.println("Мощность второго самолета: " + plane1.getPower() + ". Максимальная высота полета: " + plane1.getFlyingHeight() + "Марка: " + plane1.getBrand());
 
         
+
+
+
+
     }
 }

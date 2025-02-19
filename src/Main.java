@@ -49,13 +49,27 @@ public class Main {
         // Для заданного самолета найти мощность и максимальную высоту полета.
         Plane plane0 = planes.get(0);
         Plane plane1 = planes.get(1);
-        System.out.println("Мощность первого самолета: " + plane0.getPower() + ". Максимальная высота полета: " + plane0.getFlyingHeight() + "Марка: " + plane0.getBrand());
-        System.out.println("Мощность второго самолета: " + plane1.getPower() + ". Максимальная высота полета: " + plane1.getFlyingHeight() + "Марка: " + plane1.getBrand());
-
-        
+        System.out.println("Мощность первого самолета: " + plane0.getPower() + ". Максимальная высота полета: " + plane0.getFlyingHeight() + " Марка: " + plane0.getBrand());
+        System.out.println("Мощность второго самолета: " + plane1.getPower() + ". Максимальная высота полета: " + plane1.getFlyingHeight() + " Марка: " + plane1.getBrand());
 
 
+        //налог с регистрации всех самолетов 3%
+        double PlaneTax = 0; //налог на самолеты
+        for (Plane p : planes) {
+            double planeTax = p.getCost() * 0.03;
+            PlaneTax += planeTax;
+        }
+        System.out.println("Налог на регистрацию всех самолетов составляет: " + PlaneTax);
 
-
+        //определить мощность стоимость и марку самого дорого самолета
+        //ищем сначала самый дорогй самолет
+        Plane mostExpensivePlane = planes.get(0); // препдпологаем  что 1 самолет самыйдорогой
+        for (Plane i : planes){
+            if (i.getCost() > mostExpensivePlane.getCost()){
+                mostExpensivePlane = i;
+            }
+        }
+        // определяем мощность стоимость и марку
+        System.out.println("Мощность, стоимость и марка самого дорого самолета: " + mostExpensivePlane.getPower() + "; " + mostExpensivePlane.getCost() + "; " + mostExpensivePlane.getBrand());
     }
 }

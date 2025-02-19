@@ -12,14 +12,17 @@ public class Main {
         planes.add(new Plane(500, 10000000, "777AAA", "JET VIP", 100));
 
 
-        //Найти стоимость и пробег заданного автомобиля
-        Car car = cars.get(0);
-        System.out.println("Стоимость автомобиля: " + car.getCost() + ". Пробег: " + car.getMileage());
 
+        //Найти стоимость и пробег заданного автомобиля
+        Car car0 = cars.get(0);
+        System.out.println("Стоимость первого автомобиля: " + car0.getCost() + ". Пробег: " + car0.getMileage());
+        Car car1 = cars.get(1);
+        System.out.println("Стоимость второго автомобиля: " + car1.getCost() + ". Пробег: " + car1.getMileage());
         // налог на регистрацию всех машин (5% от стоимости)
         double CarTax = 0; // налог на авто
         for (Car s : cars){
             double carTax = s.getCost() * 0.05;
+            CarTax += carTax;
         }
         System.out.println("Налог на регистрацию всех машин составляет: " + CarTax);
 
@@ -33,12 +36,40 @@ public class Main {
             }
         }
         // проверяем прошла ли она техосмотр
-        System.out.println("Самая дорогая машина" + mostExpensiveCar);
+
+        String soutTechInsp;
         if(mostExpensiveCar.isTechInsp()){
-            System.out.println(" прошла тех осмотр");
+            soutTechInsp = " прошла тех осмотр";
         } else {
-            System.out.println(" не прошла тех осмотр");
+            soutTechInsp = " не прошла тех осмотр";
         }
 
+        System.out.println("Самая дорогая машина " + mostExpensiveCar.getBrand() + soutTechInsp);
+
+        // Для заданного самолета найти мощность и максимальную высоту полета.
+        Plane plane0 = planes.get(0);
+        Plane plane1 = planes.get(1);
+        System.out.println("Мощность первого самолета: " + plane0.getPower() + ". Максимальная высота полета: " + plane0.getFlyingHeight() + " Марка: " + plane0.getBrand());
+        System.out.println("Мощность второго самолета: " + plane1.getPower() + ". Максимальная высота полета: " + plane1.getFlyingHeight() + " Марка: " + plane1.getBrand());
+
+
+        //налог с регистрации всех самолетов 3%
+        double PlaneTax = 0; //налог на самолеты
+        for (Plane p : planes) {
+            double planeTax = p.getCost() * 0.03;
+            PlaneTax += planeTax;
+        }
+        System.out.println("Налог на регистрацию всех самолетов составляет: " + PlaneTax);
+
+        //определить мощность стоимость и марку самого дорого самолета
+        //ищем сначала самый дорогй самолет
+        Plane mostExpensivePlane = planes.get(0); // препдпологаем  что 1 самолет самыйдорогой
+        for (Plane i : planes){
+            if (i.getCost() > mostExpensivePlane.getCost()){
+                mostExpensivePlane = i;
+            }
+        }
+        // определяем мощность стоимость и марку
+        System.out.println("Мощность, стоимость и марка самого дорого самолета: " + mostExpensivePlane.getPower() + "; " + mostExpensivePlane.getCost() + "; " + mostExpensivePlane.getBrand());
     }
 }

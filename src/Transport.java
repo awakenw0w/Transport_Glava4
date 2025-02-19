@@ -13,7 +13,9 @@ abstract class Transport {
     public int getCost(){
         return cost;
     }
-
+    public int getPower(){
+        return power;
+    }
     public String getBrand(){
         return brand;
     }

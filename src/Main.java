@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
@@ -11,13 +12,18 @@ public class Main {
         planes.add(new Plane(800, 50000000, "123SSS", "JET", 50));
         planes.add(new Plane(500, 10000000, "777AAA", "JET VIP", 100));
 
+        // Для заданного автомобиля найти стоимость и пробег.
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите номерной знак автомобиля, который хотите найти: ");
+        String inputeCarNumber = scanner.nextLine();
+        //поиск автомобиля по номеру
+        for (Car car : cars) {
+            if (car.getNumber().equals(inputeCarNumber)) {
+                System.out.println("Автомобиль с номером " + car.getNumber() + " имеет пробег " + car.getMileage() + " и стоит " + car.getCost());
+                break;
+            }
+        }
 
-
-        //Найти стоимость и пробег заданного автомобиля
-        Car car0 = cars.get(0);
-        System.out.println("Стоимость первого автомобиля: " + car0.getCost() + ". Пробег: " + car0.getMileage());
-        Car car1 = cars.get(1);
-        System.out.println("Стоимость второго автомобиля: " + car1.getCost() + ". Пробег: " + car1.getMileage());
         // налог на регистрацию всех машин (5% от стоимости)
         double CarTax = 0; // налог на авто
         for (Car s : cars){
@@ -27,7 +33,6 @@ public class Main {
         System.out.println("Налог на регистрацию всех машин составляет: " + CarTax);
 
         //прошел ли техосмотр владелец самой дорогой машины
-
         //ищем самую дорогую машину
         Car mostExpensiveCar = cars.get(0); //предпологаем что 1 машина самая дорогая
         for (Car s : cars){
@@ -36,7 +41,6 @@ public class Main {
             }
         }
         // проверяем прошла ли она техосмотр
-
         String soutTechInsp;
         if(mostExpensiveCar.isTechInsp()){
             soutTechInsp = " прошла тех осмотр";
@@ -47,11 +51,14 @@ public class Main {
         System.out.println("Самая дорогая машина " + mostExpensiveCar.getBrand() + soutTechInsp);
 
         // Для заданного самолета найти мощность и максимальную высоту полета.
-        Plane plane0 = planes.get(0);
-        Plane plane1 = planes.get(1);
-        System.out.println("Мощность первого самолета: " + plane0.getPower() + ". Максимальная высота полета: " + plane0.getFlyingHeight() + " Марка: " + plane0.getBrand());
-        System.out.println("Мощность второго самолета: " + plane1.getPower() + ". Максимальная высота полета: " + plane1.getFlyingHeight() + " Марка: " + plane1.getBrand());
-
+        System.out.println("Введите номерной знак самолета, который хотите найти: ");
+        String inputPlaneNumber = scanner.nextLine();
+        for(Plane plane : planes){
+            if(plane.getNumber().equals(inputPlaneNumber)){
+                System.out.println("Самолет с номером " + plane.getNumber() + " имеет мощность " + plane.getPower() + " и максимальнуюв высоту полета " + plane.getFlyingHeight());
+                break;
+            }
+        }
 
         //налог с регистрации всех самолетов 3%
         double PlaneTax = 0; //налог на самолеты

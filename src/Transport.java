@@ -19,6 +19,8 @@ abstract class Transport {
     public String getBrand(){
         return brand;
     }
-
+    public String getNumber(){
+        return number;
+    }
 
 }
